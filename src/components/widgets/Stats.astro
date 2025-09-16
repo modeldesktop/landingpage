@@ -11,33 +11,38 @@ const {
   stats = [],
 
   id,
-  isDark = false,
+  isDark = true,
   classes = {},
   bg = await Astro.slots.render('bg'),
 } = Astro.props;
 ---
 
-<WidgetWrapper id={id} isDark={isDark} containerClass={`max-w-6xl mx-auto ${classes?.container ?? ''}`} bg={bg}>
+<WidgetWrapper
+  id={id}
+  isDark={isDark}
+  containerClass={`max-w-6xl mx-auto ${classes?.container ?? ''}`}
+  bg={bg ?? 'bg-black'}
+>
   <Headline title={title} subtitle={subtitle} tagline={tagline} />
+
   <div class="flex flex-wrap justify-center -m-4 text-center">
     {
       stats &&
         stats.map(({ amount, title, icon }) => (
-          <div class="p-4 md:w-1/4 sm:w-1/2 w-full min-w-[220px] text-center md:border-r md:last:border-none dark:md:border-slate-500 intersect-once motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade intersect-quarter">
+          <div class="p-6 md:w-1/4 sm:w-1/2 w-full min-w-[220px] text-center border-primary/40 md:border-r last:border-none intersect-once motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade intersect-quarter">
             {icon && (
+              // CAMBIO: Se usa text-primary para el color del ícono
               <div class="flex items-center justify-center mx-auto mb-4 text-primary">
                 <Icon name={icon} class="w-10 h-10" />
               </div>
             )}
             {amount && (
-              <div class="font-heading text-primary text-[2.6rem] font-bold dark:text-white lg:text-5xl xl:text-6xl">
-                {amount}
-              </div>
+              // CAMBIO: Se usa text-primary y clases estándar de Tailwind para el número
+              <div class="text-5xl font-bold text-primary font-heading">{amount}</div>
             )}
             {title && (
-              <div class="text-sm font-medium uppercase tracking-widest text-gray-800 dark:text-slate-400 lg:text-base">
-                {title}
-              </div>
+              // CAMBIO: Se usa text-default para el título descriptivo
+              <div class="text-default uppercase tracking-wider mt-1">{title}</div>
             )}
           </div>
         ))

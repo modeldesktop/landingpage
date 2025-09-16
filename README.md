@@ -294,6 +294,7 @@ If you have any ideas, suggestions or find any bugs, feel free to open a discuss
 That would be very useful for all of us and we would be happy to listen and take action.
 
 ## Acknowledgements
+
 .
 
 Initially created by **Arthelokyo** and maintained by a community of [contributors](https://github.com/arthelokyo/astrowind/graphs/contributors).

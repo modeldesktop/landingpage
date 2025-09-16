@@ -27,24 +27,29 @@ const {
       testimonials &&
         testimonials.map(({ title, testimonial, name, job, image }) => (
           <div class="flex h-auto intersect-once motion-safe:md:intersect:animate-fade motion-safe:md:opacity-0 intersect-quarter">
-            <div class="flex flex-col p-4 md:p-6 rounded-md shadow-xl dark:shadow-none dark:border dark:border-slate-600">
-              {title && <h2 class="text-lg font-medium leading-6 pb-4">{title}</h2>}
+            {/* CAMBIO DE COLOR: Borde de la tarjeta ahora es dorado */}
+            <div class="flex flex-col p-4 md:p-6 rounded-md shadow-xl dark:shadow-none dark:border dark:border-primary/40">
+              {/* CAMBIO DE COLOR: Título ahora es dorado */}
+              {title && <h2 class="text-lg font-medium leading-6 pb-4 text-primary">{title}</h2>}
               {testimonial && (
                 <blockquote class="flex-auto">
-                  <p class="text-muted">" {testimonial} "</p>
+                  {/* CAMBIO DE COLOR: Párrafo ahora es color crema */}
+                  <p class="text-default">" {testimonial} "</p>
                 </blockquote>
               )}
 
-              <hr class="border-slate-200 dark:border-slate-600 my-4" />
+              {/* CAMBIO DE COLOR: Línea divisoria ahora es dorada */}
+              <hr class="border-primary/40 my-4" />
 
               <div class="flex items-center">
                 {image && (
-                  <div class="h-10 w-10 rounded-full border border-slate-200 dark:border-slate-600">
+                  /* CAMBIO DE COLOR: Borde del avatar ahora es dorado */
+                  <div class="h-10 w-10 rounded-full border dark:border-primary/40">
                     {typeof image === 'string' ? (
                       <Fragment set:html={image} />
                     ) : (
                       <Image
-                        class="h-10 w-10 rounded-full border border-slate-200 dark:border-slate-600 min-w-full min-h-full"
+                        class="h-10 w-10 rounded-full border border-slate-200 dark:border-primary/40 min-w-full min-h-full"
                         width={40}
                         height={40}
                         widths={[400, 768]}
@@ -56,8 +61,10 @@ const {
                 )}
 
                 <div class="grow ml-3 rtl:ml-0 rtl:mr-3">
-                  {name && <p class="text-base font-semibold">{name}</p>}
-                  {job && <p class="text-xs text-muted">{job}</p>}
+                  {/* CAMBIO DE COLOR: Nombre ahora es blanco */}
+                  {name && <p class="text-base font-semibold text-white">{name}</p>}
+                  {/* CAMBIO DE COLOR: Puesto ahora es color crema */}
+                  {job && <p class="text-xs text-default">{job}</p>}
                 </div>
               </div>
             </div>

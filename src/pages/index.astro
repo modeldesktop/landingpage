@@ -1,399 +1,420 @@
 ---
 import Layout from '~/layouts/PageLayout.astro';
-
+import modelo1 from '~/assets/images/modelo1.jpg';
+import modelo2 from '~/assets/images/modelo2.jpg';
+import modelo3 from '~/assets/images/modelo3.jpg';
 import Hero from '~/components/widgets/Hero.astro';
-import Note from '~/components/widgets/Note.astro';
 import Features from '~/components/widgets/Features.astro';
 import Features2 from '~/components/widgets/Features2.astro';
 import Steps from '~/components/widgets/Steps.astro';
 import Content from '~/components/widgets/Content.astro';
-import BlogLatestPosts from '~/components/widgets/BlogLatestPosts.astro';
 import FAQs from '~/components/widgets/FAQs.astro';
 import Stats from '~/components/widgets/Stats.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
 
 const metadata = {
-  title: 'AstroWind — Free template for creating websites with Astro + Tailwind CSS',
+  title: 'ModelDesktop - Agencia de Gestión para Creadoras de OnlyFans',
   ignoreTitleTemplate: true,
 };
 ---
 
 <Layout metadata={metadata}>
-  <!-- Hero Widget ******************* -->
+  <section class="relative pt-20 md:pt-24 min-h-screen overflow-hidden">
+    <!-- Video de fondo -->
+    <video autoplay loop muted playsinline class="absolute inset-0 w-full h-full object-cover z-0">
+      <source src="/videos/hero.bg.mp4" type="video/mp4" />
+      Tu navegador no soporta videos en HTML5.
+    </video>
 
-  <Hero
-    actions={[
-      {
-        variant: 'primary',
-        text: 'Get template',
-        href: 'https://github.com/arthelokyo/astrowind',
-        target: '_blank',
-        icon: 'tabler:download',
-      },
-      { text: 'Learn more', href: '#features' },
-    ]}
-    image={{ src: '~/assets/images/hero-image.png', alt: 'AstroWind Hero Image' }}
-  >
-    <Fragment slot="title">
-      Free template for <span class="hidden xl:inline">creating websites with</span>
-      <span class="text-accent dark:text-white"> Astro 5.0</span> + Tailwind CSS
-    </Fragment>
+    <!-- Capa de oscurecimiento -->
+    <div class="absolute inset-0 bg-black/80 z-10"></div>
 
-    <Fragment slot="subtitle">
-      <span class="hidden sm:inline">
-        <span class="font-semibold">AstroWind</span> is a free, customizable and production-ready template for Astro 5.0
-        + Tailwind CSS.</span
+    <!-- Contenido del Hero -->
+    <div class="relative z-20">
+      <Hero
+        actions={[
+          {
+            variant: 'primary',
+            text: 'Aplicar',
+            href: 'https://form.jotform.com/251154901037348',
+          },
+        ]}
       >
-      <span class="block mb-1 sm:hidden font-bold text-blue-600">AstroWind: Production-ready.</span>
-      Suitable for Startups, Small Business, SaaS websites, Professional Portfolios, Marketing websites, Landing Pages &
-      Blogs.
-    </Fragment>
-  </Hero>
+        <Fragment slot="title">
+          <span class="text-gold">
+            Conquista OnlyFans <br class="block" /> y dispara tus ingresos
+          </span>
+        </Fragment>
 
-  <!-- Note Widget ******************* -->
-
-  <Note title="Philosophy:" description="Simplicity, Best Practices and High Performance" />
-
-  <!-- Features Widget *************** -->
-
-  <Features
-    id="features"
-    tagline="Features"
-    title="What you get with AstroWind"
-    subtitle="One of the most professional and comprehensive templates currently on the market. Most starred & forked Astro theme in 2022, 2023 and 2024."
-    items={[
-      {
-        title: 'Astro + Tailwind CSS Integration',
-        description:
-          'A seamless integration between two great frameworks that offer high productivity, performance and versatility.',
-        icon: 'tabler:brand-tailwind',
-      },
-      {
-        title: 'Ready-to-use Components',
-        description:
-          'Widgets made with Tailwind CSS ready to be used in Marketing Websites, SaaS, Blogs, Personal Profiles, Small Business...',
-        icon: 'tabler:components',
-      },
-      {
-        title: 'Best Practices',
-        description:
-          'Creating secure, efficient, and user-friendly websites that deliver exceptional experiences and lasting value.',
-        icon: 'tabler:list-check',
-      },
-      {
-        title: 'Excellent Page Speed',
-        description:
-          'Having a good page speed impacts organic search ranking, improves user experience (UI/UX) and increase conversion rates.',
-        icon: 'tabler:rocket',
-      },
-      {
-        title: 'Search Engine Optimization (SEO)',
-        description:
-          "SEO lies in its ability to enhance a website's visibility, driving organic traffic and enabling it to reach a wider audience.",
-        icon: 'tabler:arrows-right-left',
-      },
-      {
-        title: 'Open to new ideas and contributions',
-        description:
-          'Embracing a culture that is open to new ideas and contributions is integral fostering innovation, collaboration, and a dynamic user experience.',
-        icon: 'tabler:bulb',
-      },
-    ]}
-  />
-
-  <!-- Content Widget **************** -->
-
-  <Content
-    isReversed
-    tagline="Inside template"
-    title="AstroWind's Blueprint: Fun Meets Functionality!"
-    items={[
-      {
-        title: 'Built on top of Astro 5.0',
-        description:
-          'Benefiting from the performance and developer-friendly features of this modern static site generator.',
-      },
-      {
-        title: 'Styled using Tailwind CSS',
-        description:
-          'Facilitating rapid design and consistent styling with this highly popular utility-first CSS framework.',
-      },
-      {
-        title: 'Cross-browser compatibility',
-        description:
-          'Ensure your website looks and functions consistently across various web browsers, delivering a seamless experience to all users.',
-      },
-    ]}
-    image={{
-      src: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
-      alt: 'Colorful Image',
-    }}
-  >
-    <Fragment slot="content">
-      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">Building on modern foundations</h3>
-      Gain a competitive advantage by incorporating industry leading practices
-    </Fragment>
-
-    <Fragment slot="bg">
-      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
-    </Fragment>
-  </Content>
-
-  <!-- Content Widget **************** -->
-
-  <Content
-    isAfterContent
-    items={[
-      {
-        title: 'High level of customization',
-        description: `Tailor the template effortlessly to match your brand's identity and requirements, making your website distinct and saving you time.`,
-      },
-      {
-        title: 'Multiple layout possibilities',
-        description:
-          'Explore various layout options to find the structure that best presents your content, enhancing user engagement and navigation.',
-      },
-      {
-        title: 'Fully responsive design',
-        description:
-          "Ensure your website's optimal performance on various devices and screen sizes, providing a consistent and enjoyable user experience.",
-      },
-      {
-        title: 'Integration of media',
-        description:
-          'Seamlessly incorporate images, videos, and multimedia elements that enhance your content and engage visitors effectively.',
-      },
-    ]}
-    image={{
-      src: 'https://images.unsplash.com/photo-1600132806370-bf17e65e942f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2194&q=80',
-      alt: 'Blueprint Image',
-    }}
-  >
-    <Fragment slot="content">Ensure your online presence truly represents you.</Fragment>
-
-    <Fragment slot="bg">
-      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
-    </Fragment>
-  </Content>
-
-  <!-- Content Widget **************** -->
-
-  <Content
-    isReversed
-    isAfterContent
-    items={[
-      {
-        title: 'Enhanced user engagement',
-        description:
-          'Captivate your audience with interactive elements, intuitive navigation, and visually appealing layouts, encouraging longer visits.',
-      },
-      {
-        title: 'Continuous improvement',
-        description:
-          'Ensure your website stays aligned with the latest trends and technologies through regular updates and enhancements.',
-      },
-      {
-        title: 'Time and resource efficiency',
-        description:
-          'Skip the time-consuming process of building a website from scratch and launch your online presence sooner with AstroWind.',
-      },
-      {
-        title: 'Community support',
-        description: `Join the growing AstroWind community for insights, resources, and assistance, ensuring you're never alone on your web development journey.`,
-      },
-    ]}
-    image={{
-      src: 'https://images.unsplash.com/photo-1611462985358-60d3498e0364?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
-      alt: 'Astronauts Image',
-    }}
-  >
-    <Fragment slot="content">Designed to foster growth and success.</Fragment>
-
-    <Fragment slot="bg">
-      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
-    </Fragment>
-  </Content>
-
-  <!-- Steps Widget ****************** -->
-
-  <Steps
-    title="Get your dream website up and running in no time with AstroWind."
-    items={[
-      {
-        title: 'Step 1: <span class="font-medium">Download</span>',
-        description:
-          "Kickstart with GitHub! Either fork the AstroWind template or simply click 'Use this template'. Your canvas awaits, ready for your digital masterpiece. In just a few clicks, you've already set the foundation.",
-        icon: 'tabler:package',
-      },
-      {
-        title: 'Step 2: <span class="font-medium">Add content</span>',
-        description:
-          "Pour your vision into it. Add images, text, and all that jazz to breathe life into your digital space. Remember, it's the content that tells your story, so make it captivating.",
-        icon: 'tabler:letter-case',
-      },
-      {
-        title: 'Step 3: <span class="font-medium">Customize styles</span>',
-        description:
-          'Give it your personal touch. Tailor colors, fonts, and layouts until it feels just right. Your unique flair, amplified by AstroWind! Precision in design ensures a seamless user experience.',
-        icon: 'tabler:paint',
-      },
-      {
-        title: 'Ready!',
-        icon: 'tabler:check',
-      },
-    ]}
-    image={{
-      src: 'https://images.unsplash.com/photo-1616198814651-e71f960c3180?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=987&q=80',
-      alt: 'Steps image',
-    }}
-  />
-
-  <!-- Features2 Widget ************** -->
-
-  <Features2
-    title="Most used widgets"
-    subtitle="Provides frequently used components for building websites using Tailwind CSS"
-    tagline="Components"
-    items={[
-      {
-        title: 'Headers',
-        description: "Ever tried driving without GPS? Boom! That's why websites need headers for direction.",
-        icon: 'flat-color-icons:template',
-      },
-      {
-        title: 'Heros',
-        description:
-          "Picture a superhero landing – epic, right? That's the job of a Hero section, making grand entrances!",
-        icon: 'flat-color-icons:gallery',
-      },
-      {
-        title: 'Features',
-        description:
-          'Where websites strut their stuff and show off superpowers. No holding back on the bragging rights here!',
-        icon: 'flat-color-icons:approval',
-      },
-      {
-        title: 'Content',
-        description:
-          "Dive into the meat and potatoes of a site; without it, you'd just be window shopping. Content is king.",
-        icon: 'flat-color-icons:document',
-      },
-      {
-        title: 'Call-to-Action',
-        description:
-          'That enthusiastic friend who\'s always urging, "Do it! Do it!"? Yeah, that\'s this button nudging you towards adventure.',
-        icon: 'flat-color-icons:advertising',
-      },
-      {
-        title: 'Pricing',
-        description: 'Behold the dessert menu of the website world. Tempting choices await, can you resist?',
-        icon: 'flat-color-icons:currency-exchange',
-      },
-      {
-        title: 'Testimonial',
-        description: 'Step into the gossip corner! Here, other visitors spill the beans and share the juicy details.',
-        icon: 'flat-color-icons:voice-presentation',
-      },
-      {
-        title: 'Contact',
-        description:
-          'Like a digital mailbox, but faster! Drop a line, ask a question, or send a virtual high-five. Ding! Message in.',
-        icon: 'flat-color-icons:business-contact',
-      },
-      {
-        title: 'Footers',
-        description: "The footer's like the credits of a movie but sprinkled with easter eggs. Time to hunt!",
-        icon: 'flat-color-icons:database',
-      },
-    ]}
-  >
-    <Fragment slot="bg">
-      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
-    </Fragment>
-  </Features2>
-
-  <!-- HighlightedPosts Widget ******* -->
-
-  <BlogLatestPosts
-    title="Find out more content in our Blog"
-    information={`The blog is used to display AstroWind documentation.
-                        Each new article will be an important step that you will need to know to be an expert in creating a website using Astro + Tailwind CSS.
-                        Astro is a very interesting technology. Thanks.
-                `}
-  />
-
-  <!-- FAQs Widget ******************* -->
-
-  <FAQs
-    title="Frequently Asked Questions"
-    subtitle="Dive into the following questions to gain insights into the powerful features that AstroWind offers and how it can elevate your web development journey."
-    tagline="FAQs"
-    classes={{ container: 'max-w-6xl' }}
-    items={[
-      {
-        title: 'Why AstroWind?',
-        description:
-          "Michael Knight a young loner on a crusade to champion the cause of the innocent. The helpless. The powerless in a world of criminals who operate above the law. Here he comes Here comes Speed Racer. He's a demon on wheels.",
-      },
-      {
-        title: 'What do I need to start?',
-        description:
-          'Space, the final frontier. These are the voyages of the Starship Enterprise. Its five-year mission: to explore strange new worlds. Many say exploration is part of our destiny, but it’s actually our duty to future generations.',
-      },
-      {
-        title: 'How to install the Astro + Tailwind CSS template?',
-        description:
-          "Well, the way they make shows is, they make one show. That show's called a pilot. Then they show that show to the people who make shows, and on the strength of that one show they decide if they're going to make more shows.",
-      },
-      {
-        title: "What's something that you don't understand?",
-        description:
-          "A flower in my garden, a mystery in my panties. Heart attack never stopped old Big Bear. I didn't even know we were calling him Big Bear.",
-      },
-      {
-        title: 'What is something that you would like to try again?',
-        description:
-          "A business big enough that it could be listed on the NASDAQ goes belly up. Disappears! It ceases to exist without me. No, you clearly don't know who you're talking to, so let me clue you in.",
-      },
-      {
-        title: 'If you could only ask one question to each person you meet, what would that question be?',
-        description:
-          "This is not about revenge. This is about justice. A lot of things can change in twelve years, Admiral. Well, that's certainly good to know. About four years. I got tired of hearing how young I looked.",
-      },
-    ]}
-  />
-
-  <!-- Stats Widget ****************** -->
+        <Fragment slot="subtitle">
+          <span class="text-gold">
+            Gestión profesional de cuentas y estrategias, mientras te enfocas en crear contenido que enganche.
+          </span>
+        </Fragment>
+      </Hero>
+    </div>
+  </section>
 
   <Stats
     stats={[
-      { title: 'Downloads', amount: '132K' },
-      { title: 'Stars', amount: '24.8K' },
-      { title: 'Forks', amount: '10.3K' },
-      { title: 'Users', amount: '48.4K' },
+      { title: 'Modelos Activas', amount: '120+' },
+      { title: 'Ingresos Generados', amount: '$100K' },
+      { title: 'Promedio de Crecimiento', amount: '300%' },
+      { title: 'Seguidores Alcanzados', amount: '1.2M' },
     ]}
   />
 
-  <!-- CallToAction Widget *********** -->
+  <Features
+    id="features"
+    tagline="Agencia de OnlyFans"
+    title="Lo que obtienes con nuestra agencia"
+    subtitle="Un equipo profesional y especializado en OnlyFans que te ayudará a crecer, generar más ingresos y construir una marca sólida."
+    items={[
+      {
+        title: 'Estrategias de Crecimiento Comprobadas',
+        description:
+          'Creamos planes personalizados que aumentan suscriptores, maximizan ingresos y mantienen una base de fans fiel.',
+        icon: 'tabler:trending-up',
+      },
+      {
+        title: 'Gestión Integral de Contenido',
+        description:
+          'Desde la planificación hasta la publicación, nos encargamos de que tu contenido tenga calidad, frecuencia y el estilo que atraiga a tu público ideal.',
+        icon: 'tabler:list-check',
+      },
+      {
+        title: 'Atención y Soporte 24/7',
+        description:
+          'Tu éxito es nuestra prioridad. Ofrecemos asistencia constante para que nunca te sientas sola en el proceso.',
+        icon: 'tabler:headset',
+      },
+      {
+        title: 'Optimización de Perfil',
+        description:
+          'Mejoramos tu biografía, fotos, descripciones y promociones para que tu perfil destaque y convierta visitas en suscriptores.',
+        icon: 'tabler:rocket',
+      },
+      {
+        title: 'Marketing y Promoción Avanzada',
+        description:
+          'Aplicamos estrategias de redes sociales, publicidad y networking para atraer más tráfico a tu OnlyFans.',
+        icon: 'tabler:volume',
+      },
+      {
+        title: 'Transparencia y Confianza',
+        description:
+          'Trabajamos con claridad en números, pagos y estrategias para que siempre sepas qué se está haciendo y hacia dónde vas.',
+        icon: 'tabler:shield-check',
+      },
+    ]}
+  />
 
   <CallToAction
     actions={[
       {
-        variant: 'primary',
-        text: 'Get template',
-        href: 'https://github.com/arthelokyo/astrowind',
-        target: '_blank',
-        icon: 'tabler:download',
+        variant: 'primary', // Cambiado a 'primary' para coherencia
+        text: 'Aplicar',
+        href: 'https://form.jotform.com/251154901037348',
+        target: '_blank', // Añadido para abrir en una nueva pestaña
+        // --- CAMBIO PRINCIPAL AQUÍ ---
+        // Clases para el botón dorado sólido con texto negro
+        classes: { root: 'bg-primary text-black font-bold hover:opacity-90' },
       },
     ]}
   >
     <Fragment slot="title">
-      Astro&nbsp;+&nbsp;<br class="block sm:hidden" /><span class="sm:whitespace-nowrap">Tailwind CSS</span>
+      <span class="text-gold">Únete a ModelDesktop</span><br class="block sm:hidden" />
+      <span class="sm:whitespace-nowrap text-gold">y transforma tu futuro</span>
     </Fragment>
 
     <Fragment slot="subtitle">
-      Be very surprised by these huge fake numbers you are seeing on this page. <br class="hidden md:inline" />Don't
-      waste more time! :P
+      Conviértete en la próxima creadora exitosa de OnlyFans.<br class="hidden md:inline" />
+      Nuestro equipo te ayudará a multiplicar tus ingresos y alcanzar la libertad que mereces.
+    </Fragment>
+  </CallToAction>
+
+  <Features2
+    title="Los errores más comunes de otras agencias"
+    subtitle="Entiende por qué la mayoría no logra llevarte al siguiente nivel"
+    items={[
+      {
+        title: 'Gestión masiva',
+        description: 'Atienden a decenas de modelos al mismo tiempo y no te dedican la atención que mereces.',
+      },
+      {
+        title: 'Estrategias genéricas',
+        description: 'Usan el mismo plan para todas, sin personalización ni análisis de tu perfil.',
+      },
+      {
+        title: 'Falta de enfoque real',
+        description: 'Prometen resultados rápidos, pero trabajan sin visión a largo plazo.',
+      },
+      {
+        title: 'Sin apoyo constante',
+        description: 'No hay un equipo que te acompañe día a día, solo respuestas lentas y poco claras.',
+      },
+      {
+        title: 'Marketing vacío',
+        description: 'Campañas básicas que no generan suscriptores de calidad ni fans fieles.',
+      },
+      {
+        title: 'Comisiones engañosas',
+        description: 'Ofrecen porcentajes atractivos, pero con tan pocos resultados que terminas ganando menos.',
+      },
+      {
+        title: 'Sin conexión con fans',
+        description: 'Chats automatizados o con guiones que no crean una relación auténtica con tu audiencia.',
+      },
+      {
+        title: 'Cero profesionalismo',
+        description: 'Agencias improvisadas sin estructura ni experiencia real en el negocio.',
+      },
+      {
+        title: 'Resultados mediocres',
+        description: 'Al final, quedas estancada sin progresar, aunque inviertas tiempo y esfuerzo.',
+      },
+    ]}
+  />
+
+  <CallToAction
+    actions={[
+      {
+        variant: 'primary', // Cambiado a 'primary' para coherencia
+        text: 'Aplicar',
+        href: 'https://form.jotform.com/251154901037348',
+        target: '_blank', // Añadido para abrir en una nueva pestaña
+        // --- CAMBIO PRINCIPAL AQUÍ ---
+        // Clases para el botón dorado sólido con texto negro
+        classes: { root: 'bg-primary text-black font-bold hover:opacity-90' },
+      },
+    ]}
+  >
+    <Fragment slot="title">
+      <span class="text-gold">Únete a ModelDesktop</span><br class="block sm:hidden" />
+      <span class="sm:whitespace-nowrap text-gold">y transforma tu futuro</span>
+    </Fragment>
+
+    <Fragment slot="subtitle">
+      Conviértete en la próxima creadora exitosa de OnlyFans.<br class="hidden md:inline" />
+      Nuestro equipo te ayudará a multiplicar tus ingresos y alcanzar la libertad que mereces.
+    </Fragment>
+  </CallToAction>
+
+  <Content
+    isAfterContent
+    items={[
+      {
+        title: 'Situation',
+        description: `Laura, 22 años de Madrid, trabajaba como camarera a tiempo completo ganando apenas 1.200€ al mes. 
+        Siempre soñó con viajar y ser independiente, pero sus ingresos no le daban la libertad que buscaba. 
+        Empezó creando contenido por su cuenta, pero apenas lograba $1k-$2k al mes y se sentía frustrada por no saber cómo crecer.`,
+      },
+      {
+        title: 'Solution',
+        description: `En 2024 se unió a nuestra agencia. Desde el primer día dejamos atrás las tareas tediosas: 
+        desarrollamos un plan de marca adaptado, estrategias de contenido personalizadas y le asignamos un equipo de gestión 
+        y chatters profesionales para optimizar sus ingresos. Laura solo tuvo que enfocarse en crear contenido 2-3 horas al día.`,
+      },
+      {
+        title: 'Result',
+        description: `En su primer mes ya alcanzó $15k en ingresos, lo que le permitió dejar su antiguo trabajo. 
+        En el cuarto mes superó los $80k mensuales y hoy viaja por destinos como Bali y Dubái, 
+        disfruta de la libertad financiera, apoya a su familia y vive la vida con la que antes solo soñaba.`,
+      },
+    ]}
+    image={{
+      src: modelo3,
+      alt: 'Success story image',
+    }}
+  >
+    <Fragment slot="content">
+      <span class="text-gold font-semibold">No te quedes solo con nuestra palabra</span><br />
+      Conoce historias reales de creadoras que transformaron su vida con nosotros.
+    </Fragment>
+  </Content>
+
+  <Content
+    isReversed
+    isAfterContent
+    items={[
+      {
+        title: 'Caso de estudio',
+        description: `Camila, 25 años de Buenos Aires, trabajaba como diseñadora gráfica freelance. 
+        Aunque le gustaba su trabajo, apenas lograba juntar $800-$1,200 al mes, lo que la mantenía estresada y sin tiempo libre. 
+        Intentó abrir su perfil de OnlyFans, pero no superaba los $1.5k mensuales porque no sabía cómo manejar la promoción ni los chats.`,
+      },
+      {
+        title: 'Solución',
+        description: `En 2024 decidió unirse a nuestra agencia. Creamos para ella una estrategia personalizada: 
+        branding profesional, sesiones fotográficas planificadas y un equipo de chatters que gestionaban a sus fans día y noche. 
+        Camila solo debía enfocarse en generar contenido creativo y auténtico.`,
+      },
+      {
+        title: 'Resultado',
+        description: `En menos de 60 días superó los $12k mensuales y, tras seis meses, alcanzó los $70k al mes de manera estable. 
+        Hoy viaja por Europa, invierte en su propio departamento y disfruta de la libertad financiera que antes parecía imposible.`,
+      },
+    ]}
+    image={{
+      src: modelo2,
+      alt: 'Success story image',
+    }}
+  >
+    <Fragment slot="content">
+      <span class="text-gold font-semibold">Otra historia de éxito real</span><br />
+      Cada creadora tiene un camino único, pero todas comparten un mismo resultado: libertad y crecimiento.
+    </Fragment>
+  </Content>
+
+  <Content
+    isAfterContent
+    items={[
+      {
+        title: 'Caso de estudio',
+        description: `Laura, 22 años de Madrid, trabajaba como camarera a tiempo completo ganando apenas 1.200€ al mes. 
+      Siempre soñó con viajar y ser independiente, pero sus ingresos no le daban la libertad que buscaba. 
+      Empezó creando contenido por su cuenta, pero apenas lograba $1k-$2k al mes y se sentía frustrada por no saber cómo crecer.`,
+      },
+      {
+        title: 'Solución',
+        description: `En 2024 se unió a nuestra agencia. Desde el primer día dejamos atrás las tareas tediosas: 
+      desarrollamos un plan de marca adaptado, estrategias de contenido personalizadas y le asignamos un equipo de gestión 
+      y chatters profesionales para optimizar sus ingresos. Laura solo tuvo que enfocarse en crear contenido 2-3 horas al día.`,
+      },
+      {
+        title: 'Resultados',
+        description: `En su primer mes ya alcanzó $15k en ingresos, lo que le permitió dejar su antiguo trabajo. 
+      En el cuarto mes superó los $80k mensuales y hoy viaja por destinos como Bali y Dubái, 
+      disfruta de la libertad financiera, apoya a su familia y vive la vida con la que antes solo soñaba.`,
+      },
+    ]}
+    image={{
+      src: modelo1,
+      alt: 'Success story image',
+    }}
+  >
+    <Fragment slot="content">
+      <span class="text-gold font-semibold">No te quedes solo con nuestra palabra</span><br />
+      Conoce historias reales de creadoras que transformaron su vida con nosotros.
+    </Fragment>
+  </Content>
+
+  <Steps
+    title="Cómo aplicar y comenzar tu camino en ModelDesktop"
+    items={[
+      {
+        title: 'Paso 1: <span class="font-medium">Completa el formulario</span>',
+        description:
+          'Haz clic en el botón "Aplicar" y llena el formulario con tu información básica y datos de contacto.',
+        icon: 'tabler:edit',
+      },
+      {
+        title: 'Paso 2: <span class="font-medium">Envío de información</span>',
+        description:
+          'Tu aplicación nos llega directamente por correo, junto con los datos necesarios para conocerte mejor.',
+        icon: 'tabler:send',
+      },
+      {
+        title: 'Paso 3: <span class="font-medium">Revisión de perfil</span>',
+        description: 'Nuestro equipo analiza tu perfil y te contacta para explicarte cómo podemos ayudarte a crecer.',
+        icon: 'tabler:search',
+      },
+      {
+        title: 'Paso 4: <span class="font-medium">¡Bienvenida a ModelDesktop!</span>',
+        description: 'Si tu aplicación es aprobada, comenzamos de inmediato a trabajar juntos en tu éxito en OnlyFans.',
+        icon: 'tabler:check',
+      },
+    ]}
+    image={{
+      src: '',
+      alt: 'Proceso de aplicación',
+    }}
+  />
+
+  <CallToAction
+    actions={[
+      {
+        variant: 'primary', // Cambiado a 'primary' para coherencia
+        text: 'Aplicar',
+        href: 'https://form.jotform.com/251154901037348',
+        target: '_blank', // Añadido para abrir en una nueva pestaña
+        // --- CAMBIO PRINCIPAL AQUÍ ---
+        // Clases para el botón dorado sólido con texto negro
+        classes: { root: 'bg-primary text-black font-bold hover:opacity-90' },
+      },
+    ]}
+  >
+    <Fragment slot="title">
+      <span class="text-gold">Únete a ModelDesktop</span><br class="block sm:hidden" />
+      <span class="sm:whitespace-nowrap text-gold">y transforma tu futuro</span>
+    </Fragment>
+
+    <Fragment slot="subtitle">
+      Conviértete en la próxima creadora exitosa de OnlyFans.<br class="hidden md:inline" />
+      Nuestro equipo te ayudará a multiplicar tus ingresos y alcanzar la libertad que mereces.
+    </Fragment>
+  </CallToAction>
+
+  <FAQs
+    title="Preguntas Frecuentes"
+    subtitle="Resolvemos las dudas más comunes sobre cómo trabajamos en la agencia."
+    tagline="FAQs"
+    classes={{ container: 'max-w-6xl' }}
+    items={[
+      {
+        title: '¿Qué beneficios tengo al unirme a la agencia?',
+        description:
+          'Te ayudamos a escalar tus ingresos, gestionar tus redes, crear contenido atractivo y optimizar tu tiempo. Tú solo te enfocas en producir contenido, nosotros nos encargamos del resto.',
+      },
+      {
+        title: '¿Necesito experiencia previa en OnlyFans?',
+        description:
+          'No, no necesitas experiencia. Te guiamos paso a paso, desde cómo crear contenido profesional hasta estrategias de marketing personalizadas para crecer rápido.',
+      },
+      {
+        title: '¿Cómo me ayuda la agencia a crecer?',
+        description:
+          'Creamos un plan de marketing individual, optimizamos tus precios, gestionamos la mensajería con fans y utilizamos estrategias probadas para multiplicar tus ingresos.',
+      },
+      {
+        title: '¿Tendré control sobre mi cuenta?',
+        description:
+          'Sí, siempre mantienes el control de tu cuenta y contenido. La agencia trabaja contigo, no por encima de ti. Nuestro objetivo es potenciar tu marca personal.',
+      },
+      {
+        title: '¿Cuánto puedo llegar a ganar?',
+        description:
+          'Depende de tu compromiso y constancia, pero nuestros modelos suelen multiplicar sus ingresos entre 3x y 10x en los primeros meses de trabajo con nosotros.',
+      },
+      {
+        title: '¿Qué necesito para empezar?',
+        description:
+          'Solo necesitas una cuenta activa de OnlyFans, disposición para crear contenido y ganas de crecer. De lo demás nos encargamos nosotros.',
+      },
+    ]}
+  />
+
+  <CallToAction
+    actions={[
+      {
+        variant: 'primary', // Cambiado a 'primary' para coherencia
+        text: 'Aplicar',
+        href: 'https://form.jotform.com/251154901037348',
+        target: '_blank', // Añadido para abrir en una nueva pestaña
+        // --- CAMBIO PRINCIPAL AQUÍ ---
+        // Clases para el botón dorado sólido con texto negro
+        classes: { root: 'bg-primary text-black font-bold hover:opacity-90' },
+      },
+    ]}
+  >
+    <Fragment slot="title">
+      <span class="text-gold">Únete a ModelDesktop</span><br class="block sm:hidden" />
+      <span class="sm:whitespace-nowrap text-gold">y transforma tu futuro</span>
+    </Fragment>
+
+    <Fragment slot="subtitle">
+      Conviértete en la próxima creadora exitosa de OnlyFans.<br class="hidden md:inline" />
+      Nuestro equipo te ayudará a multiplicar tus ingresos y alcanzar la libertad que mereces.
     </Fragment>
   </CallToAction>
 </Layout>

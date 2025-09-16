@@ -26,12 +26,16 @@ const {
       {items.map(({ title, description, icon, classes: itemClasses = {} }, index = 0) => (
         <div
           class={twMerge(
-            'flex intersect-once intersect-quarter motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade',
+            // CAMBIO 1: Convertido a una columna y centrado
+            'flex flex-col items-center text-center intersect-once intersect-quarter motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade',
             panelClass,
             itemClasses?.panel
           )}
         >
-          <div class="flex flex-col items-center mr-4 rtl:mr-0 rtl:ml-4">
+          {/* Contenedor del Ícono y la Línea */}
+          <div class="flex flex-col items-center">
+            {' '}
+            {/* CAMBIO 2: Eliminado el margen derecho 'mr-4' */}
             <div>
               <div class="flex items-center justify-center">
                 {(icon || defaultIcon) && (
@@ -42,8 +46,11 @@ const {
                 )}
               </div>
             </div>
-            {index !== items.length - 1 && <div class="w-px h-full bg-black/10 dark:bg-slate-400/50" />}
+            {/* CAMBIO 3: La línea ahora tiene una altura fija para conectar los puntos */}
+            {index !== items.length - 1 && <div class="w-px h-16 bg-black/10 dark:bg-slate-400/50" />}
           </div>
+
+          {/* Contenedor del Texto */}
           <div class={`pt-1 ${index !== items.length - 1 ? 'pb-8' : ''}`}>
             {title && <p class={twMerge('text-xl font-bold', titleClass, itemClasses?.title)} set:html={title} />}
             {description && (

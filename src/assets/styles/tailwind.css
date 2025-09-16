@@ -1,3 +1,24 @@
+:root {
+  --aw-font-sans: 'Inter Variable';
+  --aw-font-serif: 'Inter Variable';
+  --aw-font-heading: 'Inter Variable';
+
+  --aw-color-primary: rgb(174 138 96); /* Dorado tostado */
+  --aw-color-secondary: rgb(138 121 104); /* Marrón latte */
+  --aw-color-accent: rgb(174 138 96); /* Acentos */
+  --aw-color-text-heading: rgb(74 63 53); /* Espresso */
+  --aw-color-text-default: rgb(74 63 53); /* Texto principal (claro) */
+  --aw-color-text-muted: rgb(138 121 104);
+  --aw-color-bg-page: rgb(234 224 200); /* Crema */
+  --aw-color-bg-page-dark: rgb(3 6 32); /* Azul negruzco */
+}
+
+html.dark {
+  --aw-color-bg-page: #000000;
+  --aw-color-text-default: #ae8a60; /* Dorado tostado (oscuro) */
+  --aw-color-text-muted: #8a7968;
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -9,11 +30,8 @@
   .bg-dark {
     background-color: var(--aw-color-bg-page-dark);
   }
-  .bg-light {
-    background-color: var(--aw-color-bg-page);
-  }
   .text-page {
-    color: var(--aw-color-text-page);
+    color: var(--aw-color-text-default);
   }
   .text-muted {
     color: var(--aw-color-text-muted);
@@ -38,18 +56,17 @@
   }
 }
 
+/* Header scroll */
 #header.scroll > div:first-child {
   @apply bg-page md:bg-white/90 md:backdrop-blur-md;
   box-shadow: 0 0.375rem 1.5rem 0 rgb(140 152 164 / 13%);
 }
+
 .dark #header.scroll > div:first-child,
 #header.scroll.dark > div:first-child {
   @apply bg-page md:bg-[#030621e6] border-b border-gray-500/20;
   box-shadow: none;
 }
-/* #header.scroll > div:last-child {
-  @apply py-3;
-} */
 
 #header.expanded nav {
   position: fixed;
@@ -66,27 +83,55 @@
   display: block;
 }
 
-[astro-icon].icon-light > * {
-  stroke-width: 1.2;
+/* ===========================
+   BLOQUE DE REFUERZO (FONDO NEGRO HEADER + MENÚ MÓVIL)
+   =========================== */
+
+#header,
+header#header,
+#header > div {
+  background-color: #000000 !important;
+  color: #ae8a60 !important;
 }
 
-[astro-icon].icon-bold > * {
-  stroke-width: 2.4;
+#header.expanded,
+#header.expanded nav,
+#header.expanded .dropdown-menu,
+#mobile-menu {
+  background-color: #000000 !important;
+  color: #ae8a60 !important;
 }
 
-[data-aw-toggle-menu] path {
-  @apply transition;
+#header a,
+#header .dropdown-menu a,
+#mobile-menu a {
+  color: #ae8a60 !important;
 }
-[data-aw-toggle-menu].expanded g > path:first-child {
-  @apply -rotate-45 translate-y-[15px] translate-x-[-3px];
+#header a:hover,
+#header .dropdown-menu a:hover,
+#mobile-menu a:hover {
+  color: #ffffff !important;
 }
 
-[data-aw-toggle-menu].expanded g > path:last-child {
-  @apply rotate-45 translate-y-[-8px] translate-x-[14px];
+#header .btn,
+#header button,
+#header .actions .btn,
+#header .btn-primary,
+#header .btn-secondary {
+  color: inherit !important;
+  border-color: currentColor !important;
+  background: transparent !important;
 }
 
-/* To deprecated */
+#header.expanded .bg-white,
+#header.expanded .bg-blue-50,
+#header.expanded .bg-page,
+#header.expanded .bg-light {
+  background-color: #000000 !important;
+}
 
-.dd *:first-child {
-  margin-top: 0;
+html,
+body {
+  background-color: #000000 !important;
+  color: #ae8a60;
 }

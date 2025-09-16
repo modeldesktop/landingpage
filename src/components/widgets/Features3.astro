@@ -31,7 +31,16 @@ const {
   }`}
   bg={bg}
 >
-  <Headline title={title} subtitle={subtitle} tagline={tagline} classes={classes?.headline as Record<string, string>} />
+  <Headline
+    title={title}
+    subtitle={subtitle}
+    tagline={tagline}
+    classes={{
+      ...((classes?.headline as Record<string, string>) ?? {}),
+      title: 'text-heading-1',
+      subtitle: 'text-subtitle',
+    }}
+  />
 
   <div aria-hidden="true" class="aspect-w-16 aspect-h-7">
     {
@@ -61,9 +70,11 @@ const {
     classes={{
       container: 'mt-12',
       panel: 'max-w-full sm:max-w-md',
-      title: 'text-lg font-semibold',
-      description: 'mt-0.5',
-      icon: 'flex-shrink-0 mt-1 text-primary w-6 h-6',
+      // CAMBIO: Aplicadas las clases globales a los items de la grilla
+      title: 'text-heading-3',
+      description: 'text-body mt-0.5',
+      // CAMBIO: Ícono actualizado a la paleta de colores dorada
+      icon: 'flex-shrink-0 mt-1 text-[#AE8A60] w-6 h-6',
       ...((classes?.items as object) ?? {}),
     }}
   />
